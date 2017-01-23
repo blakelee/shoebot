@@ -1,0 +1,40 @@
+group 'net.blakelee.kotlin'
+version '1.0'
+
+buildscript {
+    ext.kotlin_version = '1.1.0-beta-17'
+
+    repositories {
+        maven {
+            url "http://dl.bintray.com/kotlin/kotlin-eap-1.1"
+        }
+
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'kotlin'
+apply plugin: 'maven'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "http://dl.bintray.com/kotlin/kotlin-eap-1.1"
+    }
+    maven {
+        url "http://dl.bintray.com/kotlin/kotlinx.coroutines"
+    }
+    jcenter()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    testCompile "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    compile 'no.tornado:tornadofx:1.6.0'
+    compile 'no.tornado:tornadofx-controls:1.6.0'
+}
