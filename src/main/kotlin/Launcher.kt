@@ -1,3 +1,4 @@
+import accountdetails.AccountDetailsEditor
 import cells.Cells
 import circledrawer.CircleDrawer
 import counter.Counter
@@ -7,6 +8,7 @@ import javafx.geometry.Insets
 import javafx.geometry.Pos
 import javafx.scene.Scene
 import javafx.stage.Stage
+import javafx.stage.StageStyle
 
 import temperature.TemperatureConverter
 import timer.Timer
@@ -25,7 +27,7 @@ class Solutions : View("7 GUIs Launcher") {
         spacing = 10.0
         alignment = Pos.CENTER
 
-        val map = mapOf("Counter" to Counter::class,
+        val map = mapOf("Counter" to AccountDetailsEditor::class,
                 "Temperature Converter" to TemperatureConverter::class,
                 "Flight Booker" to FlightBooker::class,
                 "Timer" to Timer::class,
@@ -39,6 +41,7 @@ class Solutions : View("7 GUIs Launcher") {
                 setOnAction {
                     val view = kClass.primaryConstructor?.call()
                     val stage = Stage()
+                    stage.isResizable = false
                     stage.scene = Scene(view?.root)
                     stage.title = name
                     stage.show()
